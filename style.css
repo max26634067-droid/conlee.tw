@@ -100,7 +100,7 @@ h2{font-size:clamp(24px,4vw,32px); margin:0 0 6px; color:var(--green)}
 .link-card .ico{width:42px; height:42px; border-radius:12px; display:grid; place-items:center; color:#fff; font-weight:900; font-size:18px}
 .link-card.yt .ico{background:#e62117}
 .link-card.fb .ico{background:#1877f2}
-.link-card.sp .ico{background:#ee4d2d}
+.link-card.sp .ico{background:#e2513a}
 .link-card b{display:block}
 .link-card small{color:var(--muted)}
 

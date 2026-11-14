@@ -2,8 +2,7 @@
 (function () {
   const SITE = "https://conlee.tw/";
   const hasMyship = !!(SHOP.myshipUrl && SHOP.myshipUrl.trim());
-  const shopeeItem = (p) => `https://shopee.tw/product/${SHOP.shopeeShopId}/${p.shopeeId}`;
-  const buyUrl = (p) => (hasMyship ? SHOP.myshipUrl.trim() : shopeeItem(p));
+  const buyUrl = () => SHOP.myshipUrl.trim();
   const ytList = (id) => `https://www.youtube.com/playlist?list=${encodeURIComponent(id)}`;
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const money = (n) => "NT$" + Number(n).toLocaleString("en-US");
@@ -54,7 +53,7 @@
     const action = p.soldOut
       ? `<span class="btn btn-disabled" aria-disabled="true">售完</span>`
       : `<a class="btn btn-primary" href="${buyUrl(p)}" target="_blank" rel="noopener">${buyLabel}</a>` +
-        (hasMyship ? `<span class="alt-link">或到 <a href="${shopeeItem(p)}" target="_blank" rel="noopener">蝦皮購買</a></span>` : "");
+        "";
     const badge = p.soldOut
       ? `<span class="badge out">售完</span>`
       : p.hot ? `<span class="badge hot">熱銷</span>` : "";
