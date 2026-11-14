@@ -120,6 +120,7 @@
   // ───────── 商品介紹頁（網址 conlee.tw/#m8a 可直接分享） ─────────
   const COMMON_BOOK = [
     "實體精編紙本講義，搭配麥斯頻道 YouTube 免費公開影音，在家就能自修。",
+    "書上印有 QR Code，用手機掃描就能連到對應章節的詳細影音；記得要掃描連結上去。",
     "附「線上影音導覽網頁」：影片按章節整理好，手機、平板、電腦都能看，沒有廣告。",
     "講義只提供簡答，沒有詳細計算過程。",
     "影片都是 YouTube 免費公開資源，本站沒有販售線上課程。",
@@ -156,7 +157,7 @@
         <div class="price">${money(p.price)}${p.id === "pen" ? "<small>起</small>" : ""}</div>
         <p class="note">${esc(p.note)}</p>
         <ul class="pd-list">${bullets}</ul>
-        ${vids ? `<h3>先看免費影音</h3><div class="vids">${vids}</div>` : ""}
+        ${vids ? `<h3>先看免費影音</h3><p class="small qr-note">這裡的 YouTube 影片僅供參考，詳細內容請掃描書上的 QR Code 連結觀看。</p><div class="vids">${vids}</div>` : ""}
         <div class="pd-buy">${buy}
           ${p.soldOut ? "" : `<p class="small">所有講義都在同一個賣場，可以一次買好幾本、合併結帳，滿 NT$2,000 免運。</p>`}
         </div>
