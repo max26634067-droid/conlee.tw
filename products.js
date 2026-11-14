@@ -27,6 +27,8 @@ const SHOP = {
    hot       : 熱銷標籤 true / false
    image     : images 資料夾裡的圖片檔名
    note      : 一句簡介
+   photos    : images/g 資料夾裡的照片張數（檔名 id-1.webp、id-2.webp…）
+   desc      : 介紹頁的說明，一行一句
    playlists : 對應的 YouTube 播放清單 { "顯示文字": "播放清單 ID" }
 */
 const PRODUCTS = [
@@ -34,24 +36,40 @@ const PRODUCTS = [
   {
     id: "p5a", cat: "elem-math", title: "小五數學（上）", price: 1200, soldOut: false, hot: false,
     image: "p5a.webp",
+    photos: 7,
+    desc: [
+      "結帳時請選擇學校使用的版本（康軒／南一／翰林）。",
+    ],
     note: "康軒、南一、翰林三個版本可選，108 課綱。",
     playlists: { "康軒版": "PLKHqRb2SM4i59jIM8qnMLVyKgKNzR7SJM", "南一版": "PLKHqRb2SM4i4SGKrxOaQ2w1DSXeUufGJl", "翰林版": "PLKHqRb2SM4i5pSY7ZTVRzu1b5huby9U17" },
   },
   {
     id: "p5b", cat: "elem-math", title: "小五數學（下）", price: 1200, soldOut: false, hot: false,
     image: "p5b.webp",
+    photos: 5,
+    desc: [
+      "結帳時請選擇學校使用的版本（康軒／南一／翰林）。",
+    ],
     note: "康軒、南一、翰林三個版本可選，108 課綱。",
     playlists: { "康軒版": "PLKHqRb2SM4i6PV7w1Q6nLP5YqNNzv-gIX", "南一版": "PLKHqRb2SM4i6Nrb2aWmDhix8A3Dc5gc15", "翰林版": "PLKHqRb2SM4i4dfpuHj6zsWvaaGMj7bfIb" },
   },
   {
     id: "p6a", cat: "elem-math", title: "小六數學（上）", price: 1200, soldOut: false, hot: true,
     image: "p6a.webp",
+    photos: 6,
+    desc: [
+      "結帳時請選擇學校使用的版本（康軒／南一／翰林）。",
+    ],
     note: "康軒、南一、翰林三個版本可選，108 課綱。",
     playlists: { "康軒版": "PLKHqRb2SM4i4vRegtllCqo6qZp2mAiXmq", "南一版": "PLKHqRb2SM4i4g1pKcM1YMDDhbt0IKRg-U", "翰林版": "PLKHqRb2SM4i5oqIDzCyCmTv0prwFBVQW-" },
   },
   {
     id: "p6b", cat: "elem-math", title: "小六數學（下）", price: 1000, soldOut: true, hot: false,
     image: "p6b.webp",
+    photos: 1,
+    desc: [
+      "結帳時請選擇學校使用的版本（康軒／南一／翰林）。",
+    ],
     note: "康軒、南一、翰林三個版本，108 課綱。",
     playlists: { "康軒版": "PLKHqRb2SM4i6a3Ze4OdOQUKHi4npsAYDv", "南一版": "PLKHqRb2SM4i4rI85-s1PP8FfFPpH8U_24", "翰林版": "PLKHqRb2SM4i52nCgK78OyALkpIZBCi_sM" },
   },
@@ -60,30 +78,50 @@ const PRODUCTS = [
   {
     id: "m8a", cat: "jh-math", title: "國一數學（上）", price: 1400, soldOut: false, hot: true,
     image: "m8a.webp",
+    photos: 6,
+    desc: [
+      "國中數學各版本綜合編排，不論學校用哪個版本都能使用。",
+    ],
     note: "各版本綜合編排，108 課綱。",
     playlists: { "綜合版": "PLKHqRb2SM4i7hfktD9aGqx_TvAYFShDEa" },
   },
   {
     id: "m8b", cat: "jh-math", title: "國一數學（下）", price: 1400, soldOut: false, hot: false,
     image: "m8b.webp",
+    photos: 4,
+    desc: [
+      "國中數學各版本綜合編排，不論學校用哪個版本都能使用。",
+    ],
     note: "各版本綜合編排，108 課綱。",
     playlists: { "綜合版": "PLKHqRb2SM4i7b8YAx7rPnE-2XS0_pppIm" },
   },
   {
     id: "m9a", cat: "jh-math", title: "國二數學（上）", price: 1400, soldOut: false, hot: true,
     image: "m9a.webp",
+    photos: 4,
+    desc: [
+      "國中數學各版本綜合編排，不論學校用哪個版本都能使用。",
+    ],
     note: "各版本綜合編排，108 課綱。",
     playlists: { "綜合版": "PLKHqRb2SM4i76u1Hy7WifV-_HjTDEgIO_" },
   },
   {
     id: "m9b", cat: "jh-math", title: "國二數學（下）", price: 1490, soldOut: false, hot: false,
     image: "m9b.webp",
+    photos: 7,
+    desc: [
+      "國中數學各版本綜合編排，不論學校用哪個版本都能使用。",
+    ],
     note: "各版本綜合編排，108 課綱。",
     playlists: { "綜合版": "PLKHqRb2SM4i7XtZozbChRRRYF4Vs3Vyn2" },
   },
   {
     id: "m10a", cat: "jh-math", title: "國三數學（上）", price: 1490, soldOut: false, hot: false,
     image: "m10a.webp",
+    photos: 3,
+    desc: [
+      "國中數學各版本綜合編排，不論學校用哪個版本都能使用。",
+    ],
     note: "各版本綜合編排，108 課綱。",
     playlists: { "綜合版": "PLKHqRb2SM4i7hCZ2r3E1KwDP3Y0azn-Ao" },
   },
@@ -92,36 +130,68 @@ const PRODUCTS = [
   {
     id: "bio8a", cat: "jh-sci", title: "國一生物（上）麥斯加工升級版", price: 1400, soldOut: false, hot: false,
     image: "bio8a.webp",
+    photos: 1,
+    desc: [
+      "內容：指定市售參考書一本（代為採購，非麥斯原創），加上麥斯印製的影音導覽 QR Code 貼紙，已手工貼在書上。",
+      "參考書以康軒版為主，國中自然各版本差異不大，南一、翰林版的同學也能使用。",
+      "掃描貼紙就能打開對應章節的 YouTube 免費影音。",
+    ],
     note: "含代購指定參考書＋專屬影音導覽貼紙。",
     playlists: {},
   },
   {
     id: "bio8b", cat: "jh-sci", title: "國一生物（下）麥斯加工升級版", price: 1400, soldOut: false, hot: false,
     image: "bio8b.webp",
+    photos: 1,
+    desc: [
+      "內容：指定市售參考書一本（代為採購，非麥斯原創），加上麥斯印製的影音導覽 QR Code 貼紙，已手工貼在書上。",
+      "參考書以康軒版為主，國中自然各版本差異不大，南一、翰林版的同學也能使用。",
+      "掃描貼紙就能打開對應章節的 YouTube 免費影音。",
+    ],
     note: "含代購指定參考書＋專屬影音導覽貼紙。",
     playlists: {},
   },
   {
     id: "phy9a", cat: "jh-sci", title: "國二理化（上）", price: 1590, soldOut: false, hot: false,
     image: "phy9a.webp",
+    photos: 6,
+    desc: [
+      "講義用題目帶出觀念，不是死板的重點整理；部分頁面彩色印刷。",
+    ],
     note: "108 課綱。",
     playlists: { "": "PLKHqRb2SM4i5aoxQWl0u8fiSjPAnbDQz4" },
   },
   {
     id: "phy9b", cat: "jh-sci", title: "國二理化（下）", price: 1590, soldOut: false, hot: false,
     image: "phy9b.webp",
+    photos: 5,
+    desc: [
+      "講義用題目帶出觀念，不是死板的重點整理；部分頁面彩色印刷。",
+    ],
     note: "108 課綱。",
     playlists: { "綜合版": "PLKHqRb2SM4i4VhqUvsQadDCKnjR_FUwwO" },
   },
   {
     id: "phy10a", cat: "jh-sci", title: "國三理化（上）", price: 1400, soldOut: false, hot: false,
     image: "phy10a.webp",
+    photos: 4,
+    desc: [
+      "講義用題目帶出觀念，不是死板的重點整理；部分頁面彩色印刷。",
+      "本冊為理化，不含地科；地科另有一冊。",
+      "新講義，對應的 YouTube 影片陸續更新中。",
+    ],
     note: "理化單冊，地科另外販售。",
     playlists: { "": "PLKHqRb2SM4i7tDD5txACrG5zaJ8bWW8Al" },
   },
   {
     id: "geo10a", cat: "jh-sci", title: "國三地科（上）", price: 1000, soldOut: false, hot: false,
     image: "geo10a.webp",
+    photos: 4,
+    desc: [
+      "講義用題目帶出觀念，不是死板的重點整理；部分頁面彩色印刷。",
+      "本冊為地科，不含理化；理化另有一冊。",
+      "新講義，對應的 YouTube 影片陸續更新中。",
+    ],
     note: "地科單冊，理化另外販售。",
     playlists: { "": "PLKHqRb2SM4i78XseUkoSGjCHMYOdPA6Tc" },
   },
@@ -130,6 +200,12 @@ const PRODUCTS = [
   {
     id: "pen", cat: "other", title: "超靜音觸控筆（電子白板用）", price: 250, soldOut: true, hot: false,
     image: "pen.webp",
+    photos: 7,
+    desc: [
+      "手工打製的大螢幕觸控筆，細端軟Q有彈性，不刮傷螢幕；粗端奈米頭，書寫流暢。",
+      "相容 ViewSonic ViewBoard 等電子白板。",
+      "有雙頭長筆（16cm）、尖頭短筆（10cm）、粗頭短筆（10cm）三款。",
+    ],
     note: "相容 ViewSonic ViewBoard 等紅外線電子白板，NT$250 起。",
     playlists: {},
   },

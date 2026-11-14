@@ -61,7 +61,11 @@ h2{font-size:clamp(24px,4vw,32px); margin:0 0 6px; color:var(--green)}
 .card{background:var(--paper); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;
   display:flex; flex-direction:column; border:1px solid var(--line); scroll-margin-top:80px}
 /* 商品圖上下有白邊，裁成橫幅只留中間的綠色主視覺 */
-.card .media{position:relative; aspect-ratio:1.55/1; background:var(--green); overflow:hidden}
+.card .media{position:relative; display:block; aspect-ratio:1.55/1; background:var(--green); overflow:hidden}
+.pcount{position:absolute; right:10px; bottom:10px; padding:2px 9px; border-radius:99px; background:rgba(0,0,0,.6); color:#fff; font-size:12px}
+.card h3 a{color:inherit; text-decoration:none}
+.btn-line{background:var(--paper); color:var(--green); box-shadow:inset 0 0 0 1.5px var(--green)}
+.btn-line:hover{background:#eef5f2}
 .card .media img{width:100%; height:100%; object-fit:cover}
 .badge{position:absolute; top:10px; left:10px; padding:3px 10px; border-radius:99px; font-size:13px; font-weight:700}
 .badge.hot{background:var(--accent); color:#fff}
@@ -80,6 +84,38 @@ h2{font-size:clamp(24px,4vw,32px); margin:0 0 6px; color:var(--green)}
 .actions{margin-top:auto; display:flex; flex-direction:column; gap:6px; padding-top:6px}
 .actions .btn{width:100%; padding:11px 14px; font-size:15px}
 .btn-disabled{background:#d9d6cf; color:#6b6760; cursor:not-allowed}
+/* product detail */
+body.pd-open{overflow:hidden}
+.pd{position:fixed; inset:0; z-index:50; background:rgba(10,30,25,.6); display:flex; align-items:center; justify-content:center; padding:24px}
+.pd[hidden]{display:none}
+.pd-panel{position:relative; background:var(--paper); width:min(1000px,100%); max-height:100%; overflow:auto; border-radius:var(--radius); box-shadow:0 20px 60px rgba(0,0,0,.3)}
+#pd-body{display:grid; grid-template-columns:1.15fr 1fr; grid-template-areas:"gal info" "thumbs info"; align-items:start}
+.pd-close{position:sticky; top:10px; float:right; margin:10px 10px -48px 0; z-index:3; width:38px; height:38px; border-radius:50%; border:0;
+  background:rgba(0,0,0,.6); color:#fff; font-size:18px; cursor:pointer}
+.gallery{grid-area:gal; position:relative; background:#f1eee7}
+.track{display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; aspect-ratio:1/1}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%; scroll-snap-align:center; display:grid; place-items:center}
+.slide img{width:100%; height:100%; object-fit:contain}
+.nav-btn{position:absolute; top:50%; transform:translateY(-50%); width:40px; height:40px; border-radius:50%; border:0; background:rgba(255,255,255,.9);
+  font-size:26px; line-height:1; color:var(--green); cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.nav-btn.prev{left:10px}
+.nav-btn.next{right:10px}
+.counter{position:absolute; left:10px; bottom:10px; padding:2px 10px; border-radius:99px; background:rgba(0,0,0,.6); color:#fff; font-size:13px}
+.thumbs{grid-area:thumbs; display:flex; gap:6px; padding:8px; overflow-x:auto; scrollbar-width:none}
+.thumb{flex:0 0 60px; height:60px; padding:0; border:2px solid transparent; border-radius:8px; overflow:hidden; background:#f1eee7; cursor:pointer}
+.thumb.on{border-color:var(--accent)}
+.thumb img{width:100%; height:100%; object-fit:cover}
+.pd-info{grid-area:info; padding:24px; display:flex; flex-direction:column; gap:10px}
+.pd-info h2{margin:0; padding-right:40px; font-size:24px; line-height:1.4}
+.pd-info h3{margin:6px 0 0; font-size:16px; color:var(--green)}
+.pd-info .note{margin:0; color:var(--muted)}
+.pd-list{margin:0; padding-left:20px; color:#3b4642; font-size:15px}
+.pd-list li{margin:4px 0}
+.pd-buy{display:flex; flex-direction:column; gap:6px; margin-top:8px}
+.pd-buy .btn{width:100%}
+.pd-buy .small{margin:0; text-align:center}
+
 .alt-link{font-size:13px; color:var(--muted); text-align:center}
 .alt-link a{color:var(--muted)}
 
@@ -108,6 +144,13 @@ h2{font-size:clamp(24px,4vw,32px); margin:0 0 6px; color:var(--green)}
 .footer p{margin:0}
 
 @media (max-width:760px){
+  .pd{padding:0; align-items:stretch}
+  .pd-panel{border-radius:0; max-height:none; height:100%}
+  #pd-body{grid-template-columns:1fr; grid-template-areas:"gal" "thumbs" "info"}
+  .pd-info{padding:16px 16px 28px}
+  .pd-info h2{font-size:21px}
+  .nav-btn{display:none}
+  .actions .btn-line{padding:8px 10px; font-size:14px}
   .about{grid-template-columns:1fr}
   .nav a{padding:8px 7px; font-size:14px}
   .hero{padding:40px 0 48px}
